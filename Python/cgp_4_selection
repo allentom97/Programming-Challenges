@@ -1,0 +1,158 @@
+# Challenge 1 - Timetable
+'''
+from multiprocessing import shared_memory
+
+
+day = input("Please enter the day: ")
+day = day.lower()
+time = input("Please enter time in 24h format: ")
+hours = int(time[0:2])
+
+subjectMessage = "You should study "
+freeMessage = "You have a free"
+subjects = ["Computer Science", "English", "Maths", "Music", "Science"]
+topic = "Networks"
+
+
+if day == "monday":
+    if hours < 12:
+        print(subjectMessage + subjects[0])
+    else:
+        print(freeMessage)
+elif day == "tuesday":
+    if hours < 12:
+        print(subjectMessage + subjects[2])
+    else:
+        print(subjectMessage + subjects[4])
+elif day == "wednesday":
+    if hours < 12:
+        print(freeMessage)
+    else:
+        print(subjectMessage + subjects[1]) 
+elif day == "thursday":
+    print(subjectMessage + subjects[0] + " focusing on Networks!")
+elif day == "friday":
+    if hours < 12:
+        print(subjectMessage + subjects[3])
+    else:
+        print(freeMessage)
+else:
+    print("Invalid day")
+
+
+# Challenge 1 with match
+match day:
+    case "monday":
+        if hours < 12:
+            print(subjectMessage + subjects[0])
+        else:
+            print(freeMessage)
+    case "tuesday":
+        if hours < 12:
+            print(subjectMessage + subjects[2])
+        else:
+            print(subjectMessage + subjects[4])
+    case "wednesday":
+        if hours < 12:
+            print(freeMessage)
+        else:
+            print(subjectMessage + subjects[1]) 
+    case "thursday":
+        print(subjectMessage + subjects[0] + " focusing on " + topic + ".")
+    case "friday":
+        if hours < 12:
+            print(subjectMessage + subjects[3])
+        else:
+            print(freeMessage)
+    case other:
+        print("Invalid day")
+'''
+'''
+# Challenge 2 - Airline sale
+
+from subprocess import check_output
+
+
+aes_distance = 700
+aes_first = -1
+aes_standard = 106
+sha_distance = 5700
+sha_first = 2200
+sha_standard = 1000
+otp_distance = 1400
+otp_first = 190
+otp_standard = 95
+tls_distance = 690
+tls_first = 210
+tls_standard = 115
+
+destination = int(input("""Which of these are you going to?
+                    1. Alesund Vigra (AES)
+                    2. Shanghai Hongqiao (SHA)
+                    3. Bucharest Otopeni (OTP)
+                    4. Toulouse (TLS)
+                    5. None of these
+                    """ ))
+
+ticket_type = int(input("1. First 2. Standard"))
+
+match destination:
+    case 1:
+        distance = aes_distance
+        if ticket_type == 1:
+            price = aes_first
+        else:
+            price = aes_standard
+    case 2:
+        distance = sha_distance
+        if ticket_type == 1:
+            price = sha_first
+        else:
+            price = sha_standard
+    case 3:
+        distance = otp_distance
+        if ticket_type == 1:
+            price = otp_first
+        else:
+            price = otp_standard
+    case 4:
+        distance = tls_distance
+        if ticket_type == 1:
+            price = tls_first
+        else:
+            price = tls_standard
+    case 5:
+        distance = float(input("Please enter the distance in KM: "))
+        price = float(input("Enter the price: £"))
+
+if price == -1:
+    print("Ticket not valid")
+else: 
+    if distance <= 1000:
+        if ticket_type == 1:
+            price = price * 0.9
+        else:
+            price = price * 0.925
+    else:
+        if ticket_type == 1:
+            price = price * 0.7
+        else:
+            price = price * 0.85
+    print("Price with discounts: £" + str(round(price, 2)))
+'''
+
+# Challenge 3 - Password Checker
+password = input("Please enter a password: ")
+
+if len(password) < 8 or password[0].isdigit():
+    password = "SuperSecure"
+    print("Your password is too short or containts a digit! Here is a new password...")
+    print("Your new password is: " + password)
+
+check_password = input("Please enter password again: ")
+
+if check_password == password: 
+    print("Password match!")
+else:
+    print("Passwords do not match!")
+

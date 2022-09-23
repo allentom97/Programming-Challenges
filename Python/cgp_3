@@ -1,0 +1,27 @@
+# Challenge 1 - Satellite flight path
+'''
+from math import pi
+straightDistance = float(input("Please enter straight line distance (miles): "))
+kilometers = straightDistance / 1.6
+#pi = 3.142
+flightDistance = kilometers * pi
+print(round(flightDistance))
+
+# Challenge 2 - Pocket money program
+income = float(input("Enter how much pocket money you get per week: £"))
+spend = float(input("Enter how much you spend per week: £"))
+total = (income - spend) * 52
+print("You could save £" + str(round(total, 2)) + " per year.")
+
+
+# Challenge 3 - Animal name guessing game
+animal = "Elephant"
+print("First letter '" + animal[0] + "', last letter '" + animal[-1] + "'.")
+guess = input("Please enter your guess: ")
+print(guess == animal)
+
+# Challenge 4 - Letter language game
+word = input("Please enter a 7 letter word: ")
+print(len(word) == 7)
+
+'''

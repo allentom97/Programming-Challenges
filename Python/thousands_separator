@@ -1,0 +1,11 @@
+def format_number(num):
+    string = ""
+    if num / 1000 > 1:
+        string = ",000" + string
+    else:
+        string = str(num) + string
+    num = num / 1000
+    return string
+    
+print(format_number(1000000))
+    
